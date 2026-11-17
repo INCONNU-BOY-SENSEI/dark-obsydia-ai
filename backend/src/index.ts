@@ -41,6 +41,7 @@ async function main() {
 
   const sweeper = setInterval(() => void expireLapsedPlans().catch((err) => logger.warn({ err: err.message }, "plan sweep failed")), 10 * 60_000);
   sweeper.unref();
+  
 
   let stopping = false;
   const shutdown = async (signal: string) => {
